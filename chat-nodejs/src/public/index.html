@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sockets.io-Chat</title>
+  <script src="../../node_modules/socket.io-client/dist/socket.io.js"></script>
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">  
+  <script src="main.js"></script>
+</head>
+<body>
+  <h1>Chat</h1>
+  <div id="messages"></div>
+  <br/>
+  <form onsubmit="return addMessage(this)">
+    <input type="text" id="username" placeholder="User Name" >
+    <input type="text" id="texto" placeholder="Write here">
+    <input type="submit" value="Send">
+  </form>
+</body>
+</html>
