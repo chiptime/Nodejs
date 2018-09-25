@@ -4,9 +4,10 @@ const server  = require('http').Server(app)
 const io      = require('socket.io')(server)
 const path    = require('path')
 const morgan  = require('morgan')
+const MongoCliente = require('mongodb').MongoCliente
 
 const port = process.env.PORT || 3000;
-
+const url  = 'mongodb://localhost:27017/mydatabase'
 
 const messages = [{
     author: "Carlos",
@@ -23,13 +24,20 @@ app.use(express.static(path.join(__dirname + '/src/public')));
 app.use(morgan('dev'));
 
 
+/////////////
+MongoCliente.connect('link-to-mongodb', (err, database) => {
+
+})
+
+
+
 app.get('/hello', function(req, res) {
   res.status(200).send("Hello World!");
 });
 
 app.get('/', function(req, res){
     console.log("URL: localhost:3000", req.url)
-    res.sendFile('index.html') 
+    res.sendFile('index.html')     
 })
 
 io.on('connection', function(socket) {
